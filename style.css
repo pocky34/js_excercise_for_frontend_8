@@ -18,6 +18,7 @@ p {
 }
 
 ul {
+  padding-inline-start: 0;
 }
 
 li {
