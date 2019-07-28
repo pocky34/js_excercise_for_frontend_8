@@ -85,7 +85,7 @@
     questionElement.textContent = '';
     removeAllAnswers();
 
-    if(gameState.currentIndex < NUM_QUESTIONS){
+    if(gameState.currentIndex < gameState.quizzes.length){
       makeQuiz(gameState.quizzes[gameState.currentIndex]);
     }else{
       finishQuiz();
@@ -102,7 +102,7 @@
   // - 戻り値
   //   - 無し
   const finishQuiz = () => {
-    questionElement.textContent = `${gameState.numberOfCorrects}/${NUM_QUESTIONS} corrects`;
+    questionElement.textContent = `${gameState.numberOfCorrects}/${gameState.quizzes.length} corrects`;
     restartButton.hidden = false;
   };
 
@@ -193,7 +193,7 @@
   // - 戻り値
   //   - 文字列
   const unescapeHTML = (str) => {
-     var div = document.createElement("div");
+     const div = document.createElement("div");
      div.innerHTML = str.replace(/</g,"&lt;")
                         .replace(/>/g,"&gt;")
                         .replace(/ /g, "&nbsp;")
